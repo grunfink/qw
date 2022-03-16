@@ -1,0 +1,13 @@
+.config.log
+Makefile
+config.cflags
+config.h
+qw_avail_drv.h
+config.ldflags
+makefile.opts
+stress
+stress.out
+*.a
+*.o
+qw
+qw_default_cf.c
