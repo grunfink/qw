@@ -1,0 +1,17 @@
+ ___ __    __
+/ _ `/ |/|/ /
+\_, /|__,__/ 
+ /_/         
+
+A minimalistic text editor by grunfink - public domain
+
+This is a rewrite from scratch of qw 0.14. It features:
+
+* Infinite undo/redo levels.
+* Wordwrapping by default.
+* Full utf-8 support (arbitrary encodings not supported).
+* Syntax highlighting (configurable, with a few very common languages included).
+* Configurable colors.
+* Configurable key remapping.
+* Multiplatform: ANSI terminal (Linux, BSD, UNIX, etc) and MS Windows.
+* Clean codebase, source code comments.

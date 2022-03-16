@@ -1,0 +1,15 @@
+qw.o: qw.c config.h qw.h qw_attr.h qw_key.h qw_op.h
+qw_attr.o: qw_attr.c qw.h qw_attr.h qw_key.h qw_op.h
+qw_block.o: qw_block.c qw.h qw_attr.h qw_key.h qw_op.h
+qw_conf.o: qw_conf.c qw.h qw_attr.h qw_key.h qw_op.h
+qw_core.o: qw_core.c qw.h qw_attr.h qw_key.h qw_op.h
+qw_default_cf.o: qw_default_cf.c
+qw_doc.o: qw_doc.c qw.h qw_attr.h qw_key.h qw_op.h
+qw_drv_ansi.o: qw_drv_ansi.c config.h qw.h qw_attr.h qw_key.h qw_op.h
+qw_drv_windows.o: qw_drv_windows.c config.h qw.h qw_attr.h qw_key.h \
+ qw_op.h
+qw_journal.o: qw_journal.c config.h qw.h qw_attr.h qw_key.h qw_op.h
+qw_synhi.o: qw_synhi.c qw.h qw_attr.h qw_key.h qw_op.h
+qw_utf8.o: qw_utf8.c config.h qw.h qw_attr.h qw_key.h qw_op.h
+qw_view.o: qw_view.c qw.h qw_attr.h qw_key.h qw_op.h
+stress.o: stress.c config.h qw.h qw_attr.h qw_key.h qw_op.h

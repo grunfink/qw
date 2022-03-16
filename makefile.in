@@ -1,0 +1,57 @@
+LIB=lib$(PROJ).a
+
+DIST_TARGET=/tmp/$(PROJ)-$(VERSION)
+
+OBJS=qw.o qw_block.o qw_journal.o qw_utf8.o qw_view.o \
+    qw_attr.o qw_default_cf.o \
+    qw_synhi.o qw_doc.o qw_core.o qw_conf.o \
+    $(DRIVER_OBJ)
+
+##################################################################
+
+all: $(EXE_NAME) stress
+
+version:
+	@echo $(VERSION)
+
+.c.o:
+	$(CC) $(CFLAGS) `cat config.cflags` -c $<
+
+qw_default_cf.c: qw.cf
+	./bin2c.sh qw_default_cf < qw.cf > $@
+
+qw_res.o: qw_res.rc
+	$(WINDRES) qw_res.rc qw_res.o
+
+dep:
+	gcc -MM *.c > makefile.depend
+
+$(LIB): $(OBJS)
+	$(AR) rv $(LIB) $(OBJS)
+
+$(EXE_NAME): $(LIB) $(MORE_OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) `cat config.cflags` qw.o $(LIB) $(MORE_OBJS) `cat config.ldflags` -o $@
+
+stress-test: stress
+	./stress
+
+stress-test-v: stress
+	./stress -v
+
+stress: stress.o $(LIB)
+	$(CC) $(CFLAGS) $(LDFLAGS) `cat config.cflags` stress.o $(LIB) -o $@
+
+clean:
+	rm -f *.o *.a *.out *.tar.gz stress qw_default_cf.c *.asc ${EXE_NAME} *.exe
+
+distclean: clean
+	rm -f config.h config.cflags config.ldflags makefile.opts .config.log qw_avail_drv.h Makefile
+
+install:
+	install $(PROJ) $(PREFIX)/bin/$(PROJ)
+
+uninstall:
+	rm -f $(PREFIX)/bin/$(PROJ)
+
+Makefile: makefile.in
+	./config.sh $(CONF_ARGS)

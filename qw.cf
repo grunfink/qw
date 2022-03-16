@@ -1,0 +1,140 @@
+tab_size 4
+
+key char char
+key up up
+key down down
+key left left
+key right right
+key pgup pgup
+key pgdn pgdn
+key home bol
+key end eol
+key enter newline
+key tab tab
+key shift-tab hard_tab
+key del del
+key backspace backspace
+key ctrl-c copy
+key ctrl-n next
+key ctrl-q quit
+key ctrl-v paste
+key ctrl-x cut
+key ctrl-y del_row
+key ctrl-w close
+key ctrl-z undo
+key ctrl-s save
+key ctrl-o open
+key f9 mark
+key f8 unmark
+key ctrl-f search
+key f3 search_next
+key ctrl-home bof
+key ctrl-end eof
+key alt-minus m_dash
+key esc conf_cmd
+
+attr normal default default
+attr mark ffffff ff0000
+attr matching ffffff 0000ff
+attr word1 00f000 default
+attr word2 ff0000 default
+attr word3 800080 default
+attr literal 0000ff default
+attr comment 006000 default italic
+attr doc ff00ff default italic
+
+# dark color set
+#attr normal d0d0d0 202020
+#attr word1 6ab825 202020
+#attr word2 447fcf 202020
+#attr word3 24909d 202020
+#attr literal ed9d13 202020
+#attr comment 999999 202020 italic
+#attr doc 3677a9 202020 italic
+
+font Lucida\ Console 11
+
+# python
+sh_extension python .py
+sh_token python word1 as and assert break class continue def del elif else
+sh_token python word1 except exec finally for from if in is lambda
+sh_token python word1 not or pass print raise return try with while yield
+sh_token python word2 global True False None self dict list
+sh_token python word2 set bool int float str repr
+sh_token python literal 0
+sh_token python doc """
+sh_token python word3 import
+sh_section python comment # \n
+sh_section python literal " " \\"
+sh_section python literal ' ' \\'
+sh_signature python #!/usr/bin/python #!/usr/bin/env\ python #!/usr/local/bin/python
+
+# c/c++
+sh_extension c .c .h .l .y .hh .cpp .hpp .c++ .cxx .xpm
+sh_section c comment #if\ 0 #endif
+sh_token c word3 #ifdef #ifndef #endif #include #define #else #undef
+sh_token c word1 auto break case catch class const const_cast
+sh_token c word1 continue default delete do dynamic_cast" else enum
+sh_token c word1 explicit extern for friend goto if inline mutable
+sh_token c word1 namespace new operator private protected public
+sh_token c word1 register reinterpret_cast restrict return sizeof
+sh_token c word1 static static_cast struct switch template this
+sh_token c word1 throw try typedef typeid typename union using
+sh_token c word1 virtual volatile while not not_eq xor xor_eq or or_eq
+sh_token c word1 and and_eq bitor bitand compl
+sh_token c word2 bool char double float int long short signed
+sh_token c word2 unsigned wchar_t size_t ssize_t off_t wchar_t
+sh_token c word2 ptrdiff_t void sig_atomic_t fpos_t clock_t time_t
+sh_token c word2 va_list jmp_buf FILE DIR div_t ldiv_t mbstate_t
+sh_token c word2 wctrans_t wint_t wctype_t complex int8_t int16_t
+sh_token c word2 int32_t int64_t uint8_t uint16_t uint32_t uint64_t
+sh_token c word2 int_least8_t int_least16_t int_least32_t int_least64_t
+sh_token c word2 uint_least8_t uint_least16_t uint_least32_t
+sh_token c word2 uint_least64_t int_fast8_t int_fast16_t int_fast32_t
+sh_token c word2 int_fast64_t uint_fast8_t uint_fast16_t uint_fast32_t
+sh_token c word2 uint_fast64_t intptr_t uintptr_t intmax_t uintmax_t
+sh_token c literal NULL 0
+sh_section c doc /** */
+sh_section c comment /* */
+sh_section c literal " " \\"
+sh_section c literal ' '
+sh_section c comment // \n
+sh_signature c #include #define
+
+# perl
+sh_extension perl .pl .pm .PL
+sh_token perl word1 for if next last else elsif unless while shift unshift
+sh_token perl word1 push pop delete new bless return foreach keys values
+sh_token perl word1 sort grep tr length system exec fork map print write
+sh_token perl word1 open close chop chomp exit sleep split join sub
+sh_token perl word1 printf sprintf s glob scalar my local undef defined
+sh_token perl word1 use package require ref can isa qw qq eq ne or
+sh_token perl word1 exists and not import our caller
+sh_token perl literal 0
+sh_section perl comment # \n
+sh_section perl literal " " \\"
+sh_section perl literal ' ' \\'
+sh_section perl literal ` `
+sh_signature perl #!/usr/bin/perl #!/usr/bin/env\ perl #!/usr/local/bin/perl
+
+# sh
+sh_extension sh .sh akefile
+sh_token sh word1 if then else elif fi case do done esac
+sh_token sh word1 for until while break in source alias cd
+sh_token sh word1 continue echo eval exec exit export
+sh_token sh word1 kill logout printf pwd read return
+sh_token sh word1 shift test trap ulimit umask unset wait cp rm
+sh_token sh word2 local let set
+sh_token sh literal 0
+sh_section sh comment # \n
+sh_section sh literal ` `
+sh_section sh literal " " \\"
+sh_section sh literal ' ' \\'
+sh_signature sh #!/bin/sh #!/bin/bash #!/usr/bin/env\ bash #!/usr/local/bin/bash
+
+# gemini
+sh_extension gemini .gmi
+sh_section gemini comment \n# \n
+sh_section gemini word2 \n=> \n
+sh_section gemini literal \n> \n
+sh_section gemini doc \n* \n
