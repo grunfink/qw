@@ -643,7 +643,7 @@ static void op_open(qw_core *core)
 {
     char *fname;
 
-    if ((fname = qw_drv_open_file(core, "Document to open:")) != NULL) {
+    if ((fname = qw_drv_open_file(core, "Document to open:")) != NULL && fname[0]) {
         qw_core_doc_new(core, fname);
         free(fname);
     }
